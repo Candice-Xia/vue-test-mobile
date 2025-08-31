@@ -34,6 +34,14 @@
                 hide-details
                 class="mb-4"
                 label="Cost Center"
+                attach="body"
+                :menu-props="{
+                  maxHeight: 220,
+                  contentClass: 'custom-menu',
+                  openOnClick: false,
+                  closeOnContentClick: true,
+                  position: 'top'
+                }"
               ></v-autocomplete>
 
             <!-- Expense Type Label -->
@@ -58,6 +66,14 @@
                 :no-filter="false"
                 hide-details
                 label="Expense Type"
+                attach="body"
+                :menu-props="{
+                  maxHeight: 220,
+                  contentClass: 'custom-menu',
+                  openOnClick: false,
+                  closeOnContentClick: true,
+                  position: 'top'
+                }"
               ></v-autocomplete>
 
           <div class="d-flex justify-center mt-12 mb-8">
@@ -123,5 +139,10 @@ const customFilter = (item, queryText, itemText) => {
   height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+/* 添加自定义样式使菜单显示在键盘底层 */
+:deep(.custom-menu) {
+  z-index: 5 !important; /* 降低z-index使其低于键盘 */
 }
 </style>

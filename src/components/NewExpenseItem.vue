@@ -21,22 +21,12 @@
                 item-title="Text"
                 item-value="ID"
                 density="default"
-                height="60"
                 variant="underlined"
-                color="primary"
-                bg-color="white"
-                menu-icon="mdi-menu-down"
-                :return-object="false"
-                auto-select-first
                 clearable
                 :filter="customFilter"
-                :no-filter="false"
-                hide-details
-                class="mb-4"
-                label="Cost Center22"
+                label="Cost Center33"
                 attach="body"
                 :menu-props="{
-                  maxHeight: 220,
                   contentClass: 'custom-menu',
                   openOnClick: false,
                   closeOnContentClick: true,
@@ -54,21 +44,12 @@
                 item-title="Text"
                 item-value="ID"
                 density="default"
-                height="60"
                 variant="underlined"
-                color="primary"
-                bg-color="white"
-                menu-icon="mdi-menu-down"
-                :return-object="false"
-                auto-select-first
                 clearable
                 :filter="customFilter"
-                :no-filter="false"
-                hide-details
                 label="Expense Type"
                 attach="body"
                 :menu-props="{
-                  maxHeight: 220,
                   contentClass: 'custom-menu',
                   openOnClick: false,
                   closeOnContentClick: true,

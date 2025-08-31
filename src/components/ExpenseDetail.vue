@@ -13,6 +13,7 @@
     <v-container class="pt-16 px-0 pb-0">
       <v-form @submit.prevent="submitForm" ref="form">
         <!-- Cost Center Autocomplete -->
+        <div class="costCenter">
         <v-autocomplete
           v-model="formData.costCenter"
           :items="costCenters"
@@ -22,8 +23,13 @@
           density="default"
           class="mb-4"
           label="Cost Center"
+          menu-props="{
+            attach: '.costCenter'
+          }"
         ></v-autocomplete>
+        </div>
         <!-- Expense Type Autocomplete -->
+        <div class="expenseType">
         <v-autocomplete
           v-model="formData.expenseType"
           :items="expenseTypes"
@@ -32,8 +38,11 @@
           variant="underlined"
           density="default"
           label="Expense Type"
-          class="expense-type-autocomplete"
+          menu-props="{
+            attach: '.expenseType'
+          }"
         ></v-autocomplete>
+        </div>
 
         <div class="d-flex justify-center mt-12 mb-8">
           <v-btn 

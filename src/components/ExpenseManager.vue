@@ -52,7 +52,7 @@
         <v-icon icon="mdi-home"></v-icon>
         <span>New</span>
       </v-btn>
-      <v-btn>
+      <v-btn @click="goToExpense">
         <v-icon icon="mdi-currency-usd"></v-icon>
         <span>Expense</span>
       </v-btn>
@@ -75,6 +75,10 @@ const router = useRouter();
 
 const goToNewExpense = () => {
   router.push('/new-expense');
+};
+
+const goToExpense = () => {
+  router.push('/expense-detail');
 };
 
 // Sample expense data

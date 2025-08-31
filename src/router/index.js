@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import ExpenseManager from '../components/ExpenseManager.vue'
 import NewExpenseItem from '../components/NewExpenseItem.vue'
+import ExpenseDetail from '../components/ExpenseDetail.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -14,6 +15,11 @@ const router = createRouter({
       path: '/new-expense',
       name: 'newExpense',
       component: NewExpenseItem
+    },
+    {
+      path: '/expense-detail',
+      name: 'expenseDetail',
+      component: ExpenseDetail
     }
   ]
 })

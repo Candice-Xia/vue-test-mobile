@@ -12,52 +12,73 @@
     <v-container class="pa-0">
       <v-form @submit.prevent="submitForm" ref="form">
             <!-- Cost Center Label -->
-            <div class="text-subtitle-2 text-medium-emphasis px-4 pt-8 pb-2"></div>
+            <div class="text-subtitle-2 text-medium-emphasis px-4 pt-8 pb-2">Cost Center</div>
             
-            <!-- Cost Center Field -->
-              <v-autocomplete
-                v-model="formData.costCenter"
-                :items="costCenters"
-                item-title="Text"
-                item-value="ID"
-                density="default"
-                variant="underlined"
-                clearable
-                :filter="customFilter"
-                label="Cost Center"
-                attach="body"
-                @click:menu="adjustMenuHeight($event, 'costCenter')"
-                :menu-props="{
-                  contentClass: 'custom-menu',
-                  closeOnContentClick: true,
-                  activator: 'parent'
-                }"
-                ref="costCenterAutocomplete"
-              ></v-autocomplete>
+            <!-- Cost Center Select Field (Clickable) -->
+            <v-text-field
+              :value="getSelectedText(formData.costCenter, costCenters)"
+              readonly
+              variant="underlined"
+              density="default"
+              class="mb-4"
+              append-inner-icon="mdi-menu-down"
+              @click="showSelector('costCenter')"
+            ></v-text-field>
 
             <!-- Expense Type Label -->
-            <div class="text-subtitle-2 text-medium-emphasis px-4 pt-4 pb-2"></div>
+            <div class="text-subtitle-2 text-medium-emphasis px-4 pt-4 pb-2">Expense Type<span class="text-error">*</span></div>
             
-            <!-- Expense Type Field -->
-             <v-autocomplete
-                v-model="formData.expenseType"
-                :items="expenseTypes"
-                item-title="Text"
-                item-value="ID"
-                density="default"
-                variant="underlined"
-                clearable
-                :filter="customFilter"
-                label="Expense Type*"
-                attach="body"
-                @click:menu="adjustMenuHeight($event, 'expenseType')"
-                :menu-props="{
-                  contentClass: 'custom-menu',
-                  closeOnContentClick: true,
-                  activator: 'parent'
-                }"
-                ref="expenseTypeAutocomplete"
-              ></v-autocomplete>
+            <!-- Expense Type Select Field (Clickable) -->
+            <v-text-field
+              :value="getSelectedText(formData.expenseType, expenseTypes)"
+              readonly
+              variant="underlined"
+              density="default"
+              append-inner-icon="mdi-menu-down"
+              @click="showSelector('expenseType')"
+            ></v-text-field>
+
+            <!-- Full Screen Selector Dialog -->
+            <v-dialog
+              v-model="dialog.show"
+              fullscreen
+              transition="dialog-bottom-transition"
+              :scrim="false"
+            >
+              <v-card>
+                <!-- Dialog Toolbar -->
+                <v-toolbar color="#0059b1" dark>
+                  <v-btn icon @click="dialog.show = false">
+                    <v-icon>mdi-close</v-icon>
+                  </v-btn>
+                  <v-toolbar-title>{{ dialog.title }}</v-toolbar-title>
+                  <v-spacer></v-spacer>
+                </v-toolbar>
+                
+                <!-- Search Field -->
+                <v-text-field
+                  v-model="dialog.search"
+                  clearable
+                  label="Search"
+                  prepend-inner-icon="mdi-magnify"
+                  variant="outlined"
+                  density="comfortable"
+                  hide-details
+                  class="pa-4"
+                  autofocus
+                ></v-text-field>
+                
+                <!-- Options List -->
+                <v-list lines="two" class="overflow-y-auto" style="height: calc(100vh - 180px)">
+                  <v-list-item
+                    v-for="item in filteredItems"
+                    :key="item.ID"
+                    :title="item.Text"
+                    @click="selectItem(item.ID)"
+                  ></v-list-item>
+                </v-list>
+              </v-card>
+            </v-dialog>
 
           <div class="d-flex justify-center mt-12 mb-8">
             <v-btn 
@@ -78,7 +99,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import { useRouter } from 'vue-router';
 import costCenterData from '../data/costCenter.json';
 import expenseTypeData from '../data/expenseType.json';
@@ -95,84 +116,46 @@ const expenseTypes = expenseTypeData;
 
 const form = ref(null);
 
-const costCenterAutocomplete = ref(null);
-const expenseTypeAutocomplete = ref(null);
-const isKeyboardOpen = ref(false);
-const keyboardHeight = ref(0);
-const windowHeight = ref(window.innerHeight);
+// 对话框状态
+const dialog = ref({
+  show: false,
+  type: null, // 'costCenter' or 'expenseType'
+  title: '',
+  search: '',
+});
 
-const adjustMenuHeight = (event, fieldName) => {
-  // 获取当前窗口高度，用于检测键盘是否弹出
-  const currentHeight = window.innerHeight;
-  
-  // 如果当前高度小于记录的窗口高度，说明键盘弹出
-  if (currentHeight < windowHeight.value) {
-    isKeyboardOpen.value = true;
-    keyboardHeight.value = windowHeight.value - currentHeight;
-  } else {
-    isKeyboardOpen.value = false;
-    keyboardHeight.value = 0;
-  }
-
-  // 获取输入框元素
-  const autocompleteEl = fieldName === 'costCenter' 
-    ? costCenterAutocomplete.value?.$el 
-    : expenseTypeAutocomplete.value?.$el;
-  
-  if (!autocompleteEl) return;
-  
-  // 获取输入框位置
-  const rect = autocompleteEl.getBoundingClientRect();
-  
-  // 计算输入框到键盘顶部的距离
-  const distanceToKeyboard = currentHeight - rect.bottom - 20; // 20px的额外间距
-  
-  // 计算输入框到顶部的距离
-  const distanceToTop = rect.top - 64; // 减去app-bar的高度
-  
-  // 确定菜单的位置和高度
-  let position, maxHeight;
-  
-  if (isKeyboardOpen.value) {
-    // 键盘弹出时
-    if (distanceToKeyboard > 200) {
-      // 如果下方空间足够，显示在下方
-      position = 'bottom';
-      maxHeight = Math.min(distanceToKeyboard, 300);
-    } else {
-      // 否则显示在上方
-      position = 'top';
-      maxHeight = Math.min(distanceToTop, 300);
-    }
-  } else {
-    // 键盘未弹出时
-    position = 'bottom';
-    maxHeight = 300;
-  }
-  
-  // 应用样式
-  const menuElement = autocompleteEl.querySelector('.v-menu__content');
-  if (menuElement) {
-    menuElement.style.maxHeight = `${maxHeight}px`;
-    
-    if (position === 'top') {
-      menuElement.style.top = 'auto';
-      menuElement.style.bottom = '100%';
-    } else {
-      menuElement.style.top = '100%';
-      menuElement.style.bottom = 'auto';
-    }
-  }
+// 获取当前选中项目的显示文本
+const getSelectedText = (id, items) => {
+  if (id === null) return '';
+  const item = items.find(item => item.ID === id);
+  return item ? item.Text : '';
 };
 
-// 监听窗口大小变化
-if (typeof window !== 'undefined') {
-  window.addEventListener('resize', () => {
-    // 当窗口大小恢复到接近原始高度时，更新记录的窗口高度
-    if (Math.abs(window.innerHeight - windowHeight.value) < 100) {
-      windowHeight.value = window.innerHeight;
-    }
-  });
+// 打开选择器对话框
+const showSelector = (type) => {
+  dialog.value.type = type;
+  dialog.value.title = type === 'costCenter' ? 'Select Cost Center' : 'Select Expense Type';
+  dialog.value.search = '';
+  dialog.value.show = true;
+};
+
+// 过滤后的选项列表
+const filteredItems = computed(() => {
+  const items = dialog.value.type === 'costCenter' ? costCenters : expenseTypes;
+  if (!dialog.value.search) return items;
+  
+  const search = dialog.value.search.toLowerCase();
+  return items.filter(item => item.Text.toLowerCase().includes(search));
+});
+
+// 选择项目
+const selectItem = (id) => {
+  if (dialog.value.type === 'costCenter') {
+    formData.value.costCenter = id;
+  } else {
+    formData.value.expenseType = id;
+  }
+  dialog.value.show = false;
 }
 
 const submitForm = () => {
@@ -186,15 +169,7 @@ const goBack = () => {
   router.push('/');
 };
 
-// 自定义过滤函数，用于在任何位置匹配文本
-const customFilter = (item, queryText, itemText) => {
-  if (queryText.trim() === '') return true;
-  
-  const searchText = queryText.toLowerCase();
-  const text = itemText.toLowerCase();
-  
-  return text.includes(searchText);
-};
+//这部分逻辑已经移到 filteredItems computed 属性中
 </script>
 
 <style scoped>
@@ -204,13 +179,23 @@ const customFilter = (item, queryText, itemText) => {
   flex-direction: column;
 }
 
-/* 自定义下拉菜单样式 */
-:deep(.custom-menu) {
-  position: absolute !important;
-  overflow-y: auto;
-  transition: max-height 0.3s ease;
-  transform: none !important;
-  margin: 0 !important;
-  width: 100% !important;
+/* 对话框转场动画 */
+.dialog-bottom-transition-enter-active,
+.dialog-bottom-transition-leave-active {
+  transition: transform 0.3s ease-in-out;
+}
+
+.dialog-bottom-transition-enter-from,
+.dialog-bottom-transition-leave-to {
+  transform: translateY(100%);
+}
+
+/* 只读输入框样式 */
+:deep(.v-field--variant-underlined.v-field--focused) {
+  color: #0059b1 !important;
+}
+
+:deep(.v-field__append-inner) {
+  color: rgba(0, 0, 0, 0.54);
 }
 </style>

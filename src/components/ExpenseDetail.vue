@@ -23,7 +23,7 @@
           density="default"
           class="mb-4"
           label="Cost Center"
-          menu-props="{
+          :menu-props="{
             attach: '.costCenter'
           }"
         ></v-autocomplete>
@@ -37,8 +37,8 @@
           item-value="ID"
           variant="underlined"
           density="default"
-          label="Expense Type11"
-          menu-props="{
+          label="Expense Type22"
+          :menu-props="{
             attach: '.expenseType'
           }"
         ></v-autocomplete>
@@ -93,4 +93,7 @@ const goBack = () => {
 </script>
 
 <style scoped>
+.costCenter, .expenseType {
+  position: relative;
+}
 </style>

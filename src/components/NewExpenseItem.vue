@@ -24,14 +24,15 @@
                 variant="underlined"
                 clearable
                 :filter="customFilter"
-                label="Cost Center33"
+                label="Cost Center"
                 attach="body"
+                @click:menu="adjustMenuHeight($event, 'costCenter')"
                 :menu-props="{
                   contentClass: 'custom-menu',
-                  openOnClick: false,
                   closeOnContentClick: true,
-                  position: 'top'
+                  activator: 'parent'
                 }"
+                ref="costCenterAutocomplete"
               ></v-autocomplete>
 
             <!-- Expense Type Label -->
@@ -47,14 +48,15 @@
                 variant="underlined"
                 clearable
                 :filter="customFilter"
-                label="Expense Type"
+                label="Expense Type*"
                 attach="body"
+                @click:menu="adjustMenuHeight($event, 'expenseType')"
                 :menu-props="{
                   contentClass: 'custom-menu',
-                  openOnClick: false,
                   closeOnContentClick: true,
-                  position: 'top'
+                  activator: 'parent'
                 }"
+                ref="expenseTypeAutocomplete"
               ></v-autocomplete>
 
           <div class="d-flex justify-center mt-12 mb-8">
@@ -93,6 +95,86 @@ const expenseTypes = expenseTypeData;
 
 const form = ref(null);
 
+const costCenterAutocomplete = ref(null);
+const expenseTypeAutocomplete = ref(null);
+const isKeyboardOpen = ref(false);
+const keyboardHeight = ref(0);
+const windowHeight = ref(window.innerHeight);
+
+const adjustMenuHeight = (event, fieldName) => {
+  // 获取当前窗口高度，用于检测键盘是否弹出
+  const currentHeight = window.innerHeight;
+  
+  // 如果当前高度小于记录的窗口高度，说明键盘弹出
+  if (currentHeight < windowHeight.value) {
+    isKeyboardOpen.value = true;
+    keyboardHeight.value = windowHeight.value - currentHeight;
+  } else {
+    isKeyboardOpen.value = false;
+    keyboardHeight.value = 0;
+  }
+
+  // 获取输入框元素
+  const autocompleteEl = fieldName === 'costCenter' 
+    ? costCenterAutocomplete.value?.$el 
+    : expenseTypeAutocomplete.value?.$el;
+  
+  if (!autocompleteEl) return;
+  
+  // 获取输入框位置
+  const rect = autocompleteEl.getBoundingClientRect();
+  
+  // 计算输入框到键盘顶部的距离
+  const distanceToKeyboard = currentHeight - rect.bottom - 20; // 20px的额外间距
+  
+  // 计算输入框到顶部的距离
+  const distanceToTop = rect.top - 64; // 减去app-bar的高度
+  
+  // 确定菜单的位置和高度
+  let position, maxHeight;
+  
+  if (isKeyboardOpen.value) {
+    // 键盘弹出时
+    if (distanceToKeyboard > 200) {
+      // 如果下方空间足够，显示在下方
+      position = 'bottom';
+      maxHeight = Math.min(distanceToKeyboard, 300);
+    } else {
+      // 否则显示在上方
+      position = 'top';
+      maxHeight = Math.min(distanceToTop, 300);
+    }
+  } else {
+    // 键盘未弹出时
+    position = 'bottom';
+    maxHeight = 300;
+  }
+  
+  // 应用样式
+  const menuElement = autocompleteEl.querySelector('.v-menu__content');
+  if (menuElement) {
+    menuElement.style.maxHeight = `${maxHeight}px`;
+    
+    if (position === 'top') {
+      menuElement.style.top = 'auto';
+      menuElement.style.bottom = '100%';
+    } else {
+      menuElement.style.top = '100%';
+      menuElement.style.bottom = 'auto';
+    }
+  }
+};
+
+// 监听窗口大小变化
+if (typeof window !== 'undefined') {
+  window.addEventListener('resize', () => {
+    // 当窗口大小恢复到接近原始高度时，更新记录的窗口高度
+    if (Math.abs(window.innerHeight - windowHeight.value) < 100) {
+      windowHeight.value = window.innerHeight;
+    }
+  });
+}
+
 const submitForm = () => {
   // 简单提交表单
   console.log('Form submitted:', formData.value);
@@ -122,8 +204,13 @@ const customFilter = (item, queryText, itemText) => {
   flex-direction: column;
 }
 
-/* 添加自定义样式使菜单显示在键盘底层 */
+/* 自定义下拉菜单样式 */
 :deep(.custom-menu) {
-  z-index: 5 !important; /* 降低z-index使其低于键盘 */
+  position: absolute !important;
+  overflow-y: auto;
+  transition: max-height 0.3s ease;
+  transform: none !important;
+  margin: 0 !important;
+  width: 100% !important;
 }
 </style>

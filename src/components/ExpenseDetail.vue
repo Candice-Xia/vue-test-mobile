@@ -1,5 +1,5 @@
 <template>
-  <div class="expense-detail">
+  <div>
     <!-- App Bar -->
     <v-app-bar color="#0059b1" elevation="1">
       <template v-slot:prepend>
@@ -33,10 +33,6 @@
           density="default"
           label="Expense Type"
           class="expense-type-autocomplete"
-          location="top"
-          :menu-props="{
-             location: 'top'
-         }"
         ></v-autocomplete>
 
         <div class="d-flex justify-center mt-12 mb-8">
@@ -88,14 +84,4 @@ const goBack = () => {
 </script>
 
 <style scoped>
-.expense-detail {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-/* 设置Expense Type下拉菜单z-index */
-:deep(.expense-type-autocomplete .v-overlay__content) {
-  z-index: 5 !important; /* 较低的z-index值，使其能被键盘遮挡 */
-}
 </style>

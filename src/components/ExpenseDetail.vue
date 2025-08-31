@@ -97,7 +97,7 @@ const goBack = () => {
 
 <style scoped>
 .expense-detail {
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -106,6 +106,7 @@ const goBack = () => {
 .content-container {
   overflow-y: auto;
   flex: 1;
+  padding-bottom: 40px; /* 确保内容底部有足够空间 */
 }
 
 .costCenter, .expenseType {
@@ -115,5 +116,10 @@ const goBack = () => {
 /* 防止v-menu跟随页面滚动 */
 :deep(.v-menu__content) {
   position: fixed !important;
+}
+
+/* 确保自动完成菜单显示在其他元素上方 */
+:deep(.v-autocomplete__content) {
+  z-index: 200 !important;
 }
 </style>

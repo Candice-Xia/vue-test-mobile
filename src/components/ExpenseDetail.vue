@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="expense-detail">
     <!-- App Bar -->
     <v-app-bar color="#0059b1" elevation="1">
       <template v-slot:prepend>
@@ -10,7 +10,7 @@
       </v-app-bar-title>
     </v-app-bar>
 
-    <v-container class="pt-16 px-0 pb-0">
+    <v-container class="pt-16 px-0 pb-0 content-container">
       <v-form @submit.prevent="submitForm" ref="form">
         <!-- Cost Center Autocomplete -->
         <div class="costCenter">
@@ -24,7 +24,8 @@
           class="mb-4"
           label="Cost Center"
           :menu-props="{
-            attach: '.costCenter'
+            maxHeight: 300,
+            closeOnContentClick: true
           }"
         ></v-autocomplete>
         </div>
@@ -37,9 +38,11 @@
           item-value="ID"
           variant="underlined"
           density="default"
-          label="Expense Type22"
+          label="Expense Type44"
           :menu-props="{
-            attach: '.expenseType'
+            maxHeight: 300,
+            closeOnContentClick: true,
+            offsetY: true
           }"
         ></v-autocomplete>
         </div>
@@ -93,7 +96,24 @@ const goBack = () => {
 </script>
 
 <style scoped>
+.expense-detail {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.content-container {
+  overflow-y: auto;
+  flex: 1;
+}
+
 .costCenter, .expenseType {
   position: relative;
+}
+
+/* 防止v-menu跟随页面滚动 */
+:deep(.v-menu__content) {
+  position: fixed !important;
 }
 </style>

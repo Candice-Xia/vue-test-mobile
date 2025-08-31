@@ -37,7 +37,7 @@
           item-value="ID"
           variant="underlined"
           density="default"
-          label="Expense Type"
+          label="Expense Type11"
           menu-props="{
             attach: '.expenseType'
           }"

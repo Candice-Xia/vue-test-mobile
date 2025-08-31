@@ -1,24 +1,11 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import ExpenseManager from './components/ExpenseManager.vue'
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-    <v-btn class="ma-2" color="primary">
-    Accept
-    <v-icon icon="mdi-skip-next-outline" end />
-  </v-btn>
-  </main>
+  <v-app>
+    <router-view />
+  </v-app>
   
 </template>
 

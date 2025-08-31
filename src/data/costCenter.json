@@ -1,0 +1,442 @@
+[
+    {
+        "ID": 216,
+        "Text": "A/R Channel RMA-18135"
+    },
+    {
+        "ID": 217,
+        "Text": "Accounts Payable-18140"
+    },
+    {
+        "ID": 215,
+        "Text": "Accounts Receivable-18130"
+    },
+    {
+        "ID": 73,
+        "Text": "Administration-18420"
+    },
+    {
+        "ID": 204,
+        "Text": "Advantest-16500"
+    },
+    {
+        "ID": 37,
+        "Text": "ASIA-15307"
+    },
+    {
+        "ID": 272,
+        "Text": "AsiaPac Finance-78510"
+    },
+    {
+        "ID": 38,
+        "Text": "AUSTRALIA -15308"
+    },
+    {
+        "ID": 234,
+        "Text": "Brazil-15320"
+    },
+    {
+        "ID": 44,
+        "Text": "CANADA-15317"
+    },
+    {
+        "ID": 235,
+        "Text": "Central America/Caribbean/No So America-15318"
+    },
+    {
+        "ID": 39,
+        "Text": "CHINA -15309"
+    },
+    {
+        "ID": 233,
+        "Text": "Conosur-15319"
+    },
+    {
+        "ID": 258,
+        "Text": "Consignment Dell-54100"
+    },
+    {
+        "ID": 237,
+        "Text": "Consumer Markets Group-14280"
+    },
+    {
+        "ID": 210,
+        "Text": "Corporate Executive-18050"
+    },
+    {
+        "ID": 248,
+        "Text": "Corporate Field Sales-14220"
+    },
+    {
+        "ID": 2,
+        "Text": "CORPORATE MKT-15810"
+    },
+    {
+        "ID": 212,
+        "Text": "Cost Accounting-18111"
+    },
+    {
+        "ID": 247,
+        "Text": "Customer Service-14150"
+    },
+    {
+        "ID": 273,
+        "Text": "Dell S\u0026P-15163"
+    },
+    {
+        "ID": 263,
+        "Text": "Digital Media Packaging-13152"
+    },
+    {
+        "ID": 254,
+        "Text": "Digital Media Planning-13400"
+    },
+    {
+        "ID": 261,
+        "Text": "Digital Media Production Planning-13450"
+    },
+    {
+        "ID": 262,
+        "Text": "Digital Media QA-13122"
+    },
+    {
+        "ID": 30,
+        "Text": "Dist/System Builder-14240"
+    },
+    {
+        "ID": 40,
+        "Text": "EASTERN EUROPE-15310"
+    },
+    {
+        "ID": 193,
+        "Text": "Engineering Services-16050"
+    },
+    {
+        "ID": 184,
+        "Text": "Evaluation-15470"
+    },
+    {
+        "ID": 211,
+        "Text": "Finance-18110"
+    },
+    {
+        "ID": 241,
+        "Text": "Flash-14400"
+    },
+    {
+        "ID": 256,
+        "Text": "Flash Business Development-14410"
+    },
+    {
+        "ID": 271,
+        "Text": "Flash Corporate Marketing-15840"
+    },
+    {
+        "ID": 255,
+        "Text": "Flash Engineer-16140"
+    },
+    {
+        "ID": 189,
+        "Text": "France Expatriates-15896"
+    },
+    {
+        "ID": 174,
+        "Text": "General Affairs-13900"
+    },
+    {
+        "ID": 191,
+        "Text": "Hardware Engineering-16020"
+    },
+    {
+        "ID": 205,
+        "Text": "HP-16600"
+    },
+    {
+        "ID": 223,
+        "Text": "Human Resources-18410"
+    },
+    {
+        "ID": 236,
+        "Text": "HyperX Sales \u0026 Marketing-14260"
+    },
+    {
+        "ID": 51,
+        "Text": "IBM Material Planning-13507"
+    },
+    {
+        "ID": 220,
+        "Text": "IBM OBI FINANCE-18162"
+    },
+    {
+        "ID": 173,
+        "Text": "IBM Purchasing-13607"
+    },
+    {
+        "ID": 269,
+        "Text": "Industrial Engineering-16071"
+    },
+    {
+        "ID": 35,
+        "Text": "INTERNATIONAL SALES-15305"
+    },
+    {
+        "ID": 183,
+        "Text": "Intl Export-15465"
+    },
+    {
+        "ID": 41,
+        "Text": "JAPAN-15311"
+    },
+    {
+        "ID": 399,
+        "Text": "KDI Finance-98110"
+    },
+    {
+        "ID": 260,
+        "Text": "KT Corp Finance-79010"
+    },
+    {
+        "ID": 259,
+        "Text": "KT Corp Financial Analysts-78105"
+    },
+    {
+        "ID": 34,
+        "Text": "KT SERVICES DIVISION-15165"
+    },
+    {
+        "ID": 42,
+        "Text": "LATIN AMERICA-15312"
+    },
+    {
+        "ID": 4,
+        "Text": "MARCOM-15835"
+    },
+    {
+        "ID": 188,
+        "Text": "Marketing Support-15875"
+    },
+    {
+        "ID": 168,
+        "Text": "MATERIAL INSPECTION-13190"
+    },
+    {
+        "ID": 47,
+        "Text": "MATERIAL PLANNING-13500"
+    },
+    {
+        "ID": 43,
+        "Text": "MEXICO-15313"
+    },
+    {
+        "ID": 195,
+        "Text": "MFG ENG-16065"
+    },
+    {
+        "ID": 222,
+        "Text": "MIS  -CA-18310"
+    },
+    {
+        "ID": 229,
+        "Text": "MIS- Networking-18311"
+    },
+    {
+        "ID": 232,
+        "Text": "MIS-AS400-18314"
+    },
+    {
+        "ID": 231,
+        "Text": "MIS-PC Support-18313"
+    },
+    {
+        "ID": 230,
+        "Text": "MIS-Telecom-18312"
+    },
+    {
+        "ID": 187,
+        "Text": "MKTG - CIS-15865"
+    },
+    {
+        "ID": 219,
+        "Text": "OEM Business Support-18160"
+    },
+    {
+        "ID": 162,
+        "Text": "Operational Complnce-13125"
+    },
+    {
+        "ID": 214,
+        "Text": "Order Entry-18120"
+    },
+    {
+        "ID": 164,
+        "Text": "Packaging-13151"
+    },
+    {
+        "ID": 218,
+        "Text": "Payroll-18150"
+    },
+    {
+        "ID": 265,
+        "Text": "Payton Facility \u0026 Safety Admin-150"
+    },
+    {
+        "ID": 268,
+        "Text": "Payton Finance-211"
+    },
+    {
+        "ID": 267,
+        "Text": "Payton IS-230"
+    },
+    {
+        "ID": 266,
+        "Text": "Payton Operation Admin-190"
+    },
+    {
+        "ID": 264,
+        "Text": "Payton Testing-120"
+    },
+    {
+        "ID": 165,
+        "Text": "Pkg-IBM OBI Memory-13157"
+    },
+    {
+        "ID": 171,
+        "Text": "Procurement-13600"
+    },
+    {
+        "ID": 192,
+        "Text": "Product Engineering-16040"
+    },
+    {
+        "ID": 3,
+        "Text": "PRODUCT MARKETING-15825"
+    },
+    {
+        "ID": 5,
+        "Text": "PUBLIC RELATIONS-15855"
+    },
+    {
+        "ID": 207,
+        "Text": "Purch-IBM OBI NonMem-17600"
+    },
+    {
+        "ID": 196,
+        "Text": "Quality Engineering-16075"
+    },
+    {
+        "ID": 160,
+        "Text": "Raw Mat Rec \u0026 Whse-13105"
+    },
+    {
+        "ID": 178,
+        "Text": "REP Business Unit-15166"
+    },
+    {
+        "ID": 163,
+        "Text": "Repair \u0026 Rework-13141"
+    },
+    {
+        "ID": 185,
+        "Text": "RMA-15475"
+    },
+    {
+        "ID": 257,
+        "Text": "RMA Operation-13118"
+    },
+    {
+        "ID": 403,
+        "Text": "Sales - Channel Sales-15015"
+    },
+    {
+        "ID": 31,
+        "Text": "SALES - IBM-15027"
+    },
+    {
+        "ID": 186,
+        "Text": "Service Contracts-15485"
+    },
+    {
+        "ID": 270,
+        "Text": "Shanghai Expats-15338"
+    },
+    {
+        "ID": 166,
+        "Text": "Shipping-13161"
+    },
+    {
+        "ID": 49,
+        "Text": "SMT ASSEMBLY-13502"
+    },
+    {
+        "ID": 250,
+        "Text": "SOEM Dell-15161"
+    },
+    {
+        "ID": 253,
+        "Text": "SOEM Hardware Engineering-16021"
+    },
+    {
+        "ID": 251,
+        "Text": "SOEM HP-15162"
+    },
+    {
+        "ID": 252,
+        "Text": "SOEM Quality Engineering-16076"
+    },
+    {
+        "ID": 221,
+        "Text": "SPD Accounting-18190"
+    },
+    {
+        "ID": 1,
+        "Text": "STRATEGIC PTNR MKT-15805"
+    },
+    {
+        "ID": 180,
+        "Text": "Taiwan Expats-15331"
+    },
+    {
+        "ID": 240,
+        "Text": "Tech Resource-15458"
+    },
+    {
+        "ID": 181,
+        "Text": "Tech Support-15455"
+    },
+    {
+        "ID": 194,
+        "Text": "Test Engineering-16060"
+    },
+    {
+        "ID": 46,
+        "Text": "TESTING-13131"
+    },
+    {
+        "ID": 209,
+        "Text": "TOSHIBA MTRL PLAN-17812"
+    },
+    {
+        "ID": 208,
+        "Text": "Toshiba SCM-17811"
+    },
+    {
+        "ID": 6,
+        "Text": "TRAINING-15885"
+    },
+    {
+        "ID": 190,
+        "Text": "UK Expatriates-15907"
+    },
+    {
+        "ID": 7,
+        "Text": "US SALES-14000"
+    },
+    {
+        "ID": 206,
+        "Text": "Warehouse-NPD/IBM-17171"
+    },
+    {
+        "ID": 167,
+        "Text": "Warehouse/FGW-13171"
+    }
+]

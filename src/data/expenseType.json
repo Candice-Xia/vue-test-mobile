@@ -1,0 +1,178 @@
+[
+    {
+        "ID": 2,
+        "Text": "US - Air Travel (You Paid)"
+    },
+    {
+        "ID": 148,
+        "Text": "US - All Other Supplies"
+    },
+    {
+        "ID": 169,
+        "Text": "US - Auto Expenses"
+    },
+    {
+        "ID": 162,
+        "Text": "US - Creative/Messaging Agency-HyperX"
+    },
+    {
+        "ID": 160,
+        "Text": "US - Creative/Messaging Agency-Memory"
+    },
+    {
+        "ID": 163,
+        "Text": "US - Creative/Messaging Agency-Other"
+    },
+    {
+        "ID": 87,
+        "Text": "US - Customer Meals"
+    },
+    {
+        "ID": 88,
+        "Text": "US - Customer Meals"
+    },
+    {
+        "ID": 4,
+        "Text": "US - Employee Breakfast"
+    },
+    {
+        "ID": 5,
+        "Text": "US - Employee Dinner"
+    },
+    {
+        "ID": 11,
+        "Text": "US - Employee Lunch"
+    },
+    {
+        "ID": 7,
+        "Text": "US - Entertainment"
+    },
+    {
+        "ID": 149,
+        "Text": "US - Equipment Rental"
+    },
+    {
+        "ID": 8,
+        "Text": "US - Exchange Currency Fees"
+    },
+    {
+        "ID": 152,
+        "Text": "US - Freight Out"
+    },
+    {
+        "ID": 27,
+        "Text": "US - Internet Service"
+    },
+    {
+        "ID": 159,
+        "Text": "US - Janitorial/Cleaning"
+    },
+    {
+        "ID": 177,
+        "Text": "US - Legal Fees"
+    },
+    {
+        "ID": 154,
+        "Text": "US - License \u0026 Permit Fee"
+    },
+    {
+        "ID": 151,
+        "Text": "US - Maintenance Contract"
+    },
+    {
+        "ID": 139,
+        "Text": "US - Meals with Customer/Vendor"
+    },
+    {
+        "ID": 170,
+        "Text": "US - Media Advertising"
+    },
+    {
+        "ID": 12,
+        "Text": "US - Mileage"
+    },
+    {
+        "ID": 26,
+        "Text": "US - Office Supplies/Exp."
+    },
+    {
+        "ID": 115,
+        "Text": "BR - Office Supplies/Exp."
+    },
+    {
+        "ID": 112,
+        "Text": "BR - Other (not listed)"
+    },
+    {
+        "ID": 144,
+        "Text": "US - Other Marketing Expense"
+    },
+    {
+        "ID": 14,
+        "Text": "US - Parking"
+    },
+    {
+        "ID": 15,
+        "Text": "US - Phone"
+    },
+    {
+        "ID": 135,
+        "Text": "US - R \u0026 D Project Material"
+    },
+    {
+        "ID": 171,
+        "Text": "US - Recruiting"
+    },
+    {
+        "ID": 16,
+        "Text": "US - Rental Car (You Paid)"
+    },
+    {
+        "ID": 9,
+        "Text": "US - Rental Car Gas"
+    },
+    {
+        "ID": 101,
+        "Text": "BR - Rental Car Gas"
+    },
+    {
+        "ID": 157,
+        "Text": "US - Repair \u0026 Maintenance"
+    },
+    {
+        "ID": 158,
+        "Text": "US - Repair \u0026 Maintenance-Building"
+    },
+    {
+        "ID": 25,
+        "Text": "US - Runzheimer Rate"
+    },
+    {
+        "ID": 153,
+        "Text": "US - Security Expense"
+    },
+    {
+        "ID": 150,
+        "Text": "US - Small Furn \u0026 Fixtures"
+    },
+    {
+        "ID": 155,
+        "Text": "US - Small Tools/Equip"
+    },
+    {
+        "ID": 18,
+        "Text": "US - Taxi/Shuttle/Train/Bus/Toll"
+    },
+    {
+        "ID": 22,
+        "Text": "US - Travel Other (not listed)"
+    },
+    {
+        "ID": 3,
+        "Text": "US - Vendor Meal/Entertainment (off-site)"
+    },
+    {
+        "ID": 156,
+        "Text": "US - Warehouse Supplies"
+    }
+]

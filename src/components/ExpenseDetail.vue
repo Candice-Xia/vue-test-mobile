@@ -97,7 +97,11 @@ const goBack = () => {
 
 <style scoped>
 .expense-detail {
-  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -107,6 +111,7 @@ const goBack = () => {
   overflow-y: auto;
   flex: 1;
   padding-bottom: 40px; /* 确保内容底部有足够空间 */
+  -webkit-overflow-scrolling: touch; /* 为iOS设备添加平滑滚动 */
 }
 
 .costCenter, .expenseType {
@@ -121,5 +126,11 @@ const goBack = () => {
 /* 确保自动完成菜单显示在其他元素上方 */
 :deep(.v-autocomplete__content) {
   z-index: 200 !important;
+}
+
+/* 防止iOS Safari上出现弹性滚动效果 */
+:deep(body) {
+  position: fixed;
+  width: 100%;
 }
 </style>

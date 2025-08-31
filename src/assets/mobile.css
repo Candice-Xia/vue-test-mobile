@@ -1,11 +1,14 @@
 /* 移动端样式覆盖 */
 
-/* 防止外层滚动条 */
+/* 防止外层滚动条 - 强制固定定位 */
 html, body {
-  overflow: hidden;
+  overflow: hidden !important;
   margin: 0;
   padding: 0;
-  height: 100%;
+  height: 100% !important;
+  position: fixed !important;
+  width: 100% !important;
+  touch-action: none; /* 禁止触摸事件引起的滚动 */
 }
 
 #app {
@@ -15,15 +18,29 @@ html, body {
   padding: 0;
   display: flex;
   flex-direction: column;
+  overflow: hidden !important;
 }
 
 .v-application {
-  height: 100%;
+  height: 100% !important;
+  overflow: hidden !important;
 }
 
 .v-application__wrap {
   min-height: 0 !important;
-  height: 100%;
+  height: 100% !important;
+  overflow: hidden !important;
+}
+
+/* 防止所有可能的滚动 */
+* {
+  -webkit-overflow-scrolling: touch; /* 保留内部容器的平滑滚动 */
+}
+
+/* 移除主容器的内边距 */
+.v-container {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 
 /* 移除不必要的网格布局 */

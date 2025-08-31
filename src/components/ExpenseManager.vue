@@ -197,15 +197,21 @@ const getStatusColor = (status) => {
 
 <style scoped>
 .expense-manager {
-  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .expense-list {
   flex-grow: 1;
   overflow-y: auto;
   padding: 0;
+  -webkit-overflow-scrolling: touch; /* 为iOS设备添加平滑滚动 */
 }
 
 .expense-item {

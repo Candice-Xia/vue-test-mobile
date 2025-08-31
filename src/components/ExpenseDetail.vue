@@ -35,8 +35,7 @@
           class="expense-type-autocomplete"
           location="top"
           :menu-props="{
-             location: 'top', 
-             height: '200px'
+             location: 'top'
          }"
         ></v-autocomplete>
 
